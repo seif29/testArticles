@@ -169,9 +169,6 @@ fabric.properties
 ###< symfony/phpunit-bridge ###
 
 # End of https://www.toptal.com/developers/gitignore/api/symfony,phpstorm,macos
-###> lexik/jwt-authentication-bundle ###
-/config/jwt/*.pem
-###< lexik/jwt-authentication-bundle ###
 
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
