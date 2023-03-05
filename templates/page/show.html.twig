@@ -1,0 +1,25 @@
+{% extends '/home/index.html.twig' %}
+
+{% block title %}Page{% endblock %}
+
+{% block content %}
+    <div class="py-5 text-center mt-5">
+        <h2>{{ page.title }}</h2>
+
+        <p>
+            <br>
+            {{ page.content }}
+        </p>
+        <span class="be-comment-time">
+					<i class="fa fa-clock-o"></i>
+                    Last update : {{ page.updated|format_datetime('full', 'short', locale='en') }}
+        <br>
+				</span>
+        </tbody>
+        </table>
+
+        <br><br><a class="btn btn-info" href="{{ path('app_page_index') }}">back to list</a>
+
+    </div>
+    {{ include('page/comments.html.twig') }}
+{% endblock %}

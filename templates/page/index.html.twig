@@ -1,0 +1,37 @@
+{% extends '/home/index.html.twig' %}
+
+{% block title %}Page index{% endblock %}
+
+{% block content %}
+<div class="py-5 text-center mt-5">
+    <h2>Page index</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Created</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for page in pages %}
+            <tr>
+                <td>{{ page.id }}</td>
+                <td>{{ page.title }}</td>
+                <td>{{ page.created ? page.created|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a  class="btn" title="show" href="{{ path('app_page_show', {'id': page.id}) }}" style="color: #0275d8;text-decoration: none;"><i class="fa fa-list-alt"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

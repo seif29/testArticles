@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Technical Test{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ path('app_home') }}">Technical Test</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ path('app_page_index') }}">Pages</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex">
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <div class="nav-link disabled">{{ app.user.fullName }}</div>
+                            <a class="btn btn-outline-success" href="{{ path('app_logout') }}">Logout</a>
+                        {% else %}
+                            <a class="btn btn-outline-success" href="{{ path('app_login') }}">Login</a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+                <main>
+                    {% block content %}
+                        <div class="py-5 text-center mt-5">
+                            <h2></h2>
+                            <br><br>
+                            <br><br>
+                            <p class="lead">This is a developer technical test by Ferchichi Seifeddine.</p>
+                        </div>
+                    {% endblock %}
+                </main>
+
+        <br><br>
+        <footer class="my-5 bg-light text-muted text-center text-small">
+            <div class="container p-4 pb-0">
+                <p class="mb-1">© {{ "now"|date("Y") }} Ferchichi Seifeddine <a
+                            target="_blank"
+                            class="btn text-white btn-floating m-1"
+                            style="background-color: #0082ca; font-size: 3px;"
+                            href="https://www.linkedin.com/in/seifeddine-ferchichi-151b1887/"
+                            role="button"
+                    ><i class="fa fa-linkedin fa-5x"></i></a></p>
+            </div>
+            <br>
+        </footer>
+    </div>
+
+{% endblock %}
